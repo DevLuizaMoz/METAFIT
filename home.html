@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-home.css">
+    <title>MetaFit</title>
+</head>
+<body>
+    <!--PARA FAZER
+    corrigir o bug do nav
+        para celular ele esta iniciando aberto mas eu quero que ele somente se abra quando clicado no botão
+
+        para navegador, os itens do sidebar só estão aparecendo quando a tela é reiniciada, porém, quero que eles sempre fiquem a mostra até que a responsividade para celular seja ativada
+
+    decidir a cor do nav principal
+
+    trocar o botão de menu para o x quando clicado e vise versa
+    
+    -->
+    <section class="content-nav-sidebar">
+        <header class="main-nav">
+            <nav>
+                <div class="nav-container">
+                    <div class="logo-main"></div>
+                    <ul class="sidebar">
+                        <li class="nav_closed-button-icon" ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px"  fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                        <li><a href="#about">Sobre nós</a></li> <!--card-->
+                        <li><a href="#environment">Matrícula</a></li>
+                        <li><a href="#cards-menu">Programas</a></li>
+                        <li><a href="#cards-menu">Preços</a></li>
+                        <li><a href="#testimonials">Nossos clientes</a></li>
+                        <li><a href="#location">Localização</a></li>
+                    </ul>
+                    <li class="nav_menu-button-icon"><a href="#" onclick="showSidebar(event)"><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px"  fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>  
+                </div>
+            </nav>
+        </header>
+    </section>
+
+    <section class="banner-main">
+        <div class="banner"></div>
+    </section>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur quam molestiae harum molestias ad aliquid minus amet voluptatem ex officia maiores illum hic, cum velit inventore nulla perspiciatis eum? Voluptatum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit delectus vero exercitationem ullam adipisci tempora sequi quibusdam tenetur assumenda iure explicabo quas consequuntur nisi laudantium magni cumque, porro aspernatur. Tempore!</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
