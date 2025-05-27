@@ -1,26 +1,27 @@
-function showSidebar(event) {
-    if (event) {
-        event.preventDefault(); // Impede que o link redirecione a página para o topo
-    }
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.style.display = 'flex';
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menuButton');
+    const closeButton = document.getElementById('closeButton');
+    const sidebarLinks = document.querySelectorAll('.sidebar a:not(#closeButton)');
 
-function hideSidebar(event) {
-    if (event) {
-        if(event.target.tagName.toLowerCase() === 'a') {
-            // Não impede o comportamento padrão se o alvo for um link
-        } else {
-            event.preventDefault(); // Impede que o link redirecione a página para o topo
-        }
-    }
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.style.display = 'none';
-}
+    // Abre o sidebar
+    menuButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.classList.add('active');
+    });
 
-// Adiciona evento de clique a todos os links dentro do sidebar para fechar o menu
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        hideSidebar(event);
+    // Fecha o sidebar
+    closeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.classList.remove('active');
+    });
+
+    // Fecha o sidebar ao clicar em qualquer link (apenas mobile)
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 942) {
+                sidebar.classList.remove('active');
+            }
+        });
     });
 });

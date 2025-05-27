@@ -23,26 +23,103 @@
             <nav>
                 <div class="nav-container">
                     <div class="logo-main"></div>
-                    <ul class="sidebar">
-                        <li class="nav_closed-button-icon" ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px"  fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-                        <li><a href="#about">Sobre nós</a></li> <!--card-->
-                        <li><a href="#environment">Matrícula</a></li>
+                    <ul class="nav-items">
+                        <!-- Itens do menu principal -->
+                        <li><a href="#about">Sobre nós</a></li>
+                        <li><a href="#registration">Matrícula</a></li>
                         <li><a href="#cards-menu">Programas</a></li>
                         <li><a href="#cards-menu">Preços</a></li>
                         <li><a href="#testimonials">Nossos clientes</a></li>
                         <li><a href="#location">Localização</a></li>
                     </ul>
-                    <li class="nav_menu-button-icon"><a href="#" onclick="showSidebar(event)"><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px"  fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>  
+                    <li class="nav_menu-button-icon">
+                        <a href="#" id="menuButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="currentColor">
+                                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                            </svg>
+                        </a>
+                    </li>  
                 </div>
             </nav>
         </header>
     </section>
 
+<!-- Sidebar para mobile -->
+    <ul class="sidebar" id="sidebar"> 
+        <li class="nav_closed-button-icon">
+            <a href="#" id="closeButton">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </a>
+        </li>
+        <!-- Itens do sidebar -->
+        <li><a href="#about">Sobre nós</a></li>
+        <li><a href="#registration">Matrícula</a></li>
+        <li><a href="#cards-menu">Programas</a></li>
+        <li><a href="#cards-menu">Preços</a></li>
+        <li><a href="#testimonials">Nossos clientes</a></li>
+        <li><a href="#location">Localização</a></li>
+    </ul>
+
     <section class="banner-main">
         <div class="banner"></div>
     </section>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur quam molestiae harum molestias ad aliquid minus amet voluptatem ex officia maiores illum hic, cum velit inventore nulla perspiciatis eum? Voluptatum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit delectus vero exercitationem ullam adipisci tempora sequi quibusdam tenetur assumenda iure explicabo quas consequuntur nisi laudantium magni cumque, porro aspernatur. Tempore!</p>
+    <section class="about" id="about">
+        <div class="container-about">
+            <div class="content-about">
+                <div class="content-text-about">
+                    <div class="title-text-about">
+                        <h2 aria-label="Sobre Nós">
+                            <span class="title-line">Sobre</span>
+                            <span class="title-line emphasis">Nós</span>
+                        </h2>
+                    </div>
+                    <div class="text-content">
+                        <p>Na METAFIT, não bastava apenas treinar. Era preciso conquistar. Fundada por Ricardo, um ex-atleta que acreditava no poder da disciplina, a academia se tornou um símbolo de superação.</p>
+                        <p>Seu lema ecoava em cada treino: <span class="emphasis-text">"A meta não se alcança, se conquista."</span>  Lá, alunos não buscavam apenas resultados físicos, mas a vitória sobre suas próprias limitações.</p>
+                        <p>Júlia, Gabriel e tantos outros descobriram que o verdadeiro desafio não estava nos pesos, mas na mentalidade. Na METAFIT, cada suor derramado era um passo rumo à transformação.</p>
+                        <p>Porque aqui, metas não são destinos. São jornadas de conquista. </p>
+
+                    </div>
+                </div>
+                <div class="content-picture-about">
+                    <div class="elements-about"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="registration" id="registration">
+        <div class="container-registration">
+            <div class="content-registration">
+                <div class="content-text-registration">
+                    <div class="title-text-registration">
+                        <h2 aria-label="Por que se matricular?">
+                            <span class="title-line">Por que se</span>
+                            <span class="title-line emphasis">matricular?</span>
+                        </h2>
+                    </div>
+                    <div class="text-content">
+                        <p>Se você busca mais do que apenas exercícios, a METAFIT é o lugar certo para você. Aqui, não treinamos apenas para alcançar metas — nós as conquistamos.</p>
+                        <p>Com uma metodologia única, acompanhamento personalizado e um ambiente que inspira superação, cada treino se torna um passo rumo à sua melhor versão.</p>
+                        <p>Não importa seu nível de experiência, o que importa é sua vontade de evoluir. Venha sentir a diferença, viver o desafio e conquistar resultados reais</p>
+                        <p>Seu corpo e sua mente merecem essa transformação. A hora é agora. A escolha é sua.</p>
+                        <p>Matricule-se na METAFIT e comece sua jornada de conquista!</p>
+                    </div>
+                    <div class="button-registration">
+                        <a href="#" class="button-link-registration" role="button">
+                            <span class="button-text">Matricule-se</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="content-picture-registration">
+                    <div class="elements-registration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
