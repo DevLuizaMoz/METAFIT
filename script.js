@@ -25,3 +25,84 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os elementos corretamente
+    const carrossel = document.querySelector('.carrossel');
+    const items = document.querySelectorAll('.carrossel-item');
+    const btnPrev = document.querySelector('.prev-btn');
+    const btnNext = document.querySelector('.next-btn');
+    
+    // Verifica se os elementos existem
+    if (!carrossel || items.length === 0 || !btnPrev || !btnNext) {
+        console.error('Elementos do carrossel não encontrados!');
+        return;
+    }
+    
+    let currentIndex = 0;
+    let itemWidth = items[0].offsetWidth + 15; // 15px é o gap do CSS
+    
+    // Atualiza a largura quando a janela for redimensionada
+    window.addEventListener('resize', function() {
+        itemWidth = items[0].offsetWidth + 15;
+        updateCarrossel();
+    });
+    
+    function updateCarrossel() {
+        const offset = -currentIndex * itemWidth;
+        carrossel.style.transform = `translateX(${offset}px)`;
+        console.log('Carrossel atualizado:', currentIndex, offset); // Debug
+    }
+    
+    // Eventos dos botões
+    btnNext.addEventListener('click', function() {
+        if (currentIndex < items.length - 1) {
+            currentIndex++;
+            updateCarrossel();
+        }
+        console.log('Next clicked', currentIndex); // Debug
+    });
+    
+    btnPrev.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarrossel();
+        }
+        console.log('Prev clicked', currentIndex); // Debug
+    });
+    
+    // Toque para dispositivos móveis
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carrossel.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    
+    carrossel.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const threshold = 50; // Mínimo de pixels para considerar o swipe
+        
+        if (touchEndX + threshold < touchStartX) { // Swipe para a esquerda
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                updateCarrossel();
+            }
+        } else if (touchEndX - threshold > touchStartX) { // Swipe para a direita
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarrossel();
+            }
+        }
+    }
+    
+    // Inicializa o carrossel
+    updateCarrossel();
+});
