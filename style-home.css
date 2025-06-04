@@ -27,10 +27,8 @@ a{
 
 nav {
     width: 90%; 
-    background-color: #ffffff88;
+    background-color: #ffffff;
     border-radius: 0 0 20px 20px;
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0px 0px 5px black; 
     position: fixed; 
     display: flex; 
@@ -423,8 +421,13 @@ nav li:first-child {
     text-align: justify;
     padding: 10px;
 }
+.title-text-prices{
+    margin-bottom: 50px;
+}
 .content-plan-prices{
     display: flex;
+    margin: auto;
+    gap: 30px;
 }
 .plan-card{
     display: flex;
@@ -436,6 +439,14 @@ nav li:first-child {
 .black-plan{
     background-color: #333;
     color: white;
+    border-radius: 20px;
+}
+.mega-plan{
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.familie-plan{
+    border: 2px solid black;
     border-radius: 20px;
 }
 .plan-content{
@@ -530,7 +541,80 @@ nav li:first-child {
     margin-right: 10px;
     font-weight: 700;
 }
-
+.icon-not-included{
+    background-image: url(assents/imgs/elementos-3d/indisponivel.png);
+    width: 23px;
+    height: 23px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    left: -3px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+.not-included{
+    text-decoration: line-through;
+    color: #5C5C5C;
+}
+@media (max-width:1145px) {
+    .title-text-prices{
+        margin-left: 26px;
+    }
+    .content-plan-prices{
+        display: flex;
+        margin: auto;
+        gap: 30px;
+    }
+    .plan-card{
+        width: 280px;
+    }
+    .plan-badge{
+        width: 170px;
+        font-size: 0.9rem;
+        padding: 3px;
+        position: relative;
+        top: -55px;
+    }
+    .plan-title{
+        font-size: 1.1rem;
+    }
+    .plan-pricing{
+        font-size: 0.8rem;
+    }
+    .price-amount{
+        font-size: 1.4rem;
+    }
+    .price-terms{
+        font-size: 0.7rem;
+    }
+    .price-notice{
+        font-size: 0.7rem;
+    }
+    .cta-button {
+        font-size: 0.9rem;
+    }
+    .plan-benefits{
+        flex-direction: column;
+        list-style: none;
+    }
+    .benefit-item{
+        display: flex;
+        margin: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .benefit-item svg{
+        width: 50px;
+        height: 50px;
+    }
+    .benefit-item span{
+        margin-right: 5px;
+    }
+    .icon-not-included{
+        width: 20px;
+        height: 20px;
+    }
+}
 @media (max-width:942px) {
     .nav-items {
         display: none; 
@@ -591,6 +675,38 @@ nav li:first-child {
     .title-text-programs{
         margin-left: 35px;
     }
+    .container-price {
+        max-width: 1200px;
+        margin: 55px auto;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 30px;
+        padding: 20px 0;
+    }
+    .content-prices {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 15px;
+    }
+    .content-plan-prices {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px;
+        width: 100%;
+    }
+    .plan-card {
+        width: 350px;
+        padding: 20px;
+        margin-bottom: 20px; 
+    }
+    .plan-badge{
+        position: relative;
+        top: -45px;
+    }
 }
 @media  (max-width:865px) {
     .banner{
@@ -610,6 +726,7 @@ nav li:first-child {
         right: 0;
         border-radius: 20px;
     }
+    
 }
 @media (max-width: 782px) {
     .content-about {
@@ -635,6 +752,7 @@ nav li:first-child {
         width: 50px;
         height: 50px;
     }
+    
 }
 @media  (max-width:615px) {
     .banner{
