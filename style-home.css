@@ -556,6 +556,88 @@ nav li:first-child {
     text-decoration: line-through;
     color: #5C5C5C;
 }
+.container-testimonials{
+    margin-top: 55px;
+}
+.testimonials{
+    max-width: 1200px;
+    margin: 55px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    padding: 20px 0;
+}
+.testimonials-content{
+    width: 100%;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-top: 45px;
+}
+.content-text-testimonials{
+    font-size: 22px;
+    color: #8C695D;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    font-family: inherit;
+}
+.title-text-testimonials{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    line-height: 1; 
+    margin-left: 28px;
+}
+.testimonials-item{
+    background-color: #ffffff;
+    border: 2px solid #400D02;
+    padding: 30px;
+    border-radius: 30px;
+}
+.mais{
+    display: none;
+}
+.btnVerMais{
+    font-weight: 500;
+    cursor: pointer;
+}
+.testimonials-item img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    vertical-align: middle;
+    object-fit: cover;
+}
+.info-testimonials{
+    display: flex;
+    align-items: center;
+}
+.name-testimonials{
+    font-size: 24px;
+    font-weight: 500;
+    color: #0D0D0D;
+    line-height: 1.2;
+}
+.testimonials-item p{
+    margin-top: 20px;
+    color: #333;
+}
+.testimonials-item .rating{
+    margin-top: 5px;
+    color: gold; 
+    font-size: 15px
+}
+.testimonials .swiper-pagination{
+    position: relative;
+    margin-top: 40px;
+    bottom: auto;
+}
+.testimonials .swiper-pagination-bullet{
+    height: 12px;
+    width: 12px;
+    background-color: #D92D07;
+}
 @media (max-width:1145px) {
     .title-text-prices{
         margin-left: 26px;
@@ -604,11 +686,13 @@ nav li:first-child {
         padding-right: 10px;
     }
     .benefit-item svg{
-        width: 50px;
-        height: 50px;
+        width: 43px;
+        height: 43px;
     }
     .benefit-item span{
+        font-size: 0.7rem;
         margin-right: 5px;
+        margin-bottom: 25px;
     }
     .icon-not-included{
         width: 20px;
@@ -752,16 +836,21 @@ nav li:first-child {
         width: 50px;
         height: 50px;
     }
+    .title-text-testimonials{
+        margin-left: 45px;
+    }
     
 }
 @media  (max-width:615px) {
     .banner{
         background-image: url(assents/imgs/banner/banner600px.png);
-        width: 100vw;
-        height: 820px;
+        width: 100%;
+        height: 720px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        position: relative;
+        top: -40px;
     }
     .elements-about{
         width: 180px;

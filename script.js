@@ -106,3 +106,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializa o carrossel
     updateCarrossel();
 });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
+            behavior: 'smooth', /* Scroll suave */
+            block: 'start'      /* Alinha ao topo */
+        });
+    });
+});
+
+function vermais(botao) {
+    let comentario = botao.closest(".testimonials-item"); // Obtém o elemento pai correto
+    let pontos = comentario.querySelector(".pontos");
+    let maisTexto = comentario.querySelector(".mais");
+    
+    if (pontos.style.display === "none") {
+        pontos.style.display = "inline";
+        maisTexto.style.display = "none";
+        botao.innerHTML = "Ver mais";
+    } else {
+        pontos.style.display = "none";
+        maisTexto.style.display = "inline";
+        botao.innerHTML = "Ver menos";
+    }
+}
