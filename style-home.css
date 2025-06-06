@@ -638,6 +638,194 @@ nav li:first-child {
     width: 12px;
     background-color: #D92D07;
 }
+
+/* CSS para a seção de localização */
+.location {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+}
+
+.content-location {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title-text-location h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.title-line {
+  display: block;
+}
+
+.emphasis {
+  color: #ff5500;
+  font-weight: 700;
+}
+
+.locator-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.selector-location, .selector {
+  text-align: left;
+  min-width: 250px;
+}
+
+.selector-location label, .selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+  font-size: 1rem;
+}
+
+.selector-location select, .selector select {
+    width: 100%;
+    padding: 12px 25px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+.selector-location select:focus, .selector select:focus {
+    outline: none;
+    border-color: #ff5500;
+    box-shadow: 0 0 0 2px rgba(255, 85, 0, 0.1);
+}
+.btn-matricula {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 40px;
+    background-color: #FF6B35; 
+    background: linear-gradient(135deg, #FF6B35 0%, #FFA03A 100%);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 3px 6px rgba(255, 107, 53, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+.btn-matricula:hover {
+    background-color: #e04b00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container-footer {
+    width: 100vw;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+    overflow: hidden;
+}
+.text-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 45px;
+}
+.text-footer h2{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.text-footer p{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.line{
+    background-color: #ff2f00;
+    border-radius: 20px;
+    width: 500px;
+    height: 2px;
+}
+.additional-access-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 50px;
+}
+.logo-footer{
+    background-image: url(assents/imgs/logo/META-removebg-preview.png);
+    width: 350px;
+    height: 60px;
+    background-size: cover;
+}
+.footer-items{
+    list-style: none;
+    text-align: left;
+    margin-bottom: 40px;
+}
+.footer-items h2{
+    font-size: 1.2rem;
+    color: #D92D07;
+}
+.footer-items li{
+    margin: 10px;
+}
+.footer-items a{
+    color: #0D0D0D;
+    font-size: 1.1rem;
+    margin: 5px;
+}
+.social-contact {
+    margin-top: 50px;
+    text-align: center;
+}
+.social-contact h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.social-icon {
+    color: #333;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.social-icon:hover {
+    color: #ff5500;
+    transform: translateY(-3px);
+}
+.developer{
+    background-color: #D92D07;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 @media (max-width:1145px) {
     .title-text-prices{
         margin-left: 26px;
@@ -791,6 +979,32 @@ nav li:first-child {
         position: relative;
         top: -45px;
     }
+    .line{
+        width: 400px;
+    }
+    .additional-access-footer {
+        flex-direction: column; 
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 20px;
+    }
+    .footer-items{
+        margin-top: 20px;
+    }
+    .footer-items, 
+    .social-contact {
+        text-align: center; 
+    }
+    .social-contact {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .social-contact h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
 }
 @media  (max-width:865px) {
     .banner{
@@ -809,6 +1023,9 @@ nav li:first-child {
         position: relative;
         right: 0;
         border-radius: 20px;
+    }
+    .line{
+        width: 300px;
     }
     
 }
@@ -839,6 +1056,20 @@ nav li:first-child {
     .title-text-testimonials{
         margin-left: 45px;
     }
+    .title-text-location h2 {
+    font-size: 2rem;
+  }
+  
+  .locator-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .selector-location, .selector {
+    width: 100%;
+    max-width: 350px;
+  }
     
 }
 @media  (max-width:615px) {

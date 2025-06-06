@@ -119,8 +119,8 @@
         </div>
     </section>
 
-    <section class="programs">
-        <div class="carrossel-container" id="carrossel-programs">
+    <section class="programs" id="carrossel-programs">
+        <div class="carrossel-container" >
             <div class="content-programs">
                 <div class="title-text-programs">
                     <h2 aria-label="Confira nossos programas">
@@ -440,7 +440,92 @@
         </div>
     </section>
 
+    <section class="location" id="location">
+        <div class="content-location">
+            <div class="title-text-location">
+                <h2 aria-label="Encontre a MetaFit mais próxima de você">
+                    <span class="title-line">Encontre a MetaFit mais</span>
+                    <span class="title-line emphasis">próxima de você</span>
+                </h2>
+            </div>
+            <div class="locator-box">
+                <div class="selector-location">
+                    <label for="estados">Estado:</label>
+                    <select id="estados" name="estados">
+                    <option value="">Selecione seu estado</option>
+                    <option value="sp">São Paulo</option>
+                    <option value="rj">Rio de Janeiro</option>
+                    <option value="mg">Minas Gerais</option>
+                    <option value="pr">Paraná</option>
+                    <option value="rs">Rio Grande do Sul</option>
+                    </select>
+                </div>
+                <div class="selector">
+                    <label for="cidades">Cidade:</label>
+                    <select id="cidades" name="cidades" disabled>
+                    <option value="">Selecione primeiro o estado</option>
+                    </select>
+                </div>
+                <div class="selector">
+                    <label for="unidades">Unidades:</label>
+                    <select id="unidades" name="unidades" disabled>
+                    <option value="">Selecione primeiro a cidade</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-matricula">Matricule-se agora</button>
+        </div>
+    </section>
 
+    <footer class="container-footer">
+        <div class="content-footer">
+            <div class="container-text-footer">
+                <div class="text-footer">
+                    <h2>Realize mais uma meta</h2>
+                    <p>Faça matricula na academia que te ajudará a chegar onde você deseja!</p>
+                    <div class="line"></div>
+                </div>
+                <div class="additional-access-footer">
+                    <div class="logo-footer"></div>
+                    <ul class="footer-items">
+                        <h2>Link rápido</h2>
+                        <li><a href="#about">Sobre nós</a></li>
+                        <li><a href="#registration">Matrícula</a></li>
+                        <li><a href="#carrossel-programs">Programas</a></li>
+                        <li><a href="#price">Preços</a></li>
+                        <li><a href="#testimonials">Nossos clientes</a></li>
+                        <li><a href="#location">Localização</a></li>
+                    </ul>
+                    <div class="social-contact">
+                        <h3>Siga-nos e entre em contato</h3>
+                        <div class="social-icons">
+                            <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
+                                <svg xmlns="#" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+                                <svg xmlns="#" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" class="social-icon" aria-label="WhatsApp">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21z"/>
+                                    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm5 0a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="developer">
+                    <p>Projeto criado para fins de aprendizado. <br>Feito por luhealmo.dev@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

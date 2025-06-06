@@ -134,3 +134,111 @@ function vermais(botao) {
         botao.innerHTML = "Ver menos";
     }
 }
+
+// JavaScript para o seletor de localização
+document.addEventListener('DOMContentLoaded', function() {
+  const estadosSelect = document.getElementById('estados');
+  const cidadesSelect = document.getElementById('cidades');
+  const unidadesSelect = document.getElementById('unidades');
+  
+  // Dados fictícios de cidades por estado
+  const cidadesPorEstado = {
+    'sp': ['São Paulo', 'Campinas', 'São José dos Campos', 'Ribeirão Preto', 'Santos'],
+    'rj': ['Rio de Janeiro', 'Niterói', 'Nova Iguaçu', 'Barra da Tijuca', 'Campos dos Goytacazes'],
+    'mg': ['Belo Horizonte', 'Uberlândia', 'Juiz de Fora', 'Contagem', 'Montes Claros'],
+    'pr': ['Curitiba', 'Londrina', 'Maringá', 'Ponta Grossa', 'Cascavel'],
+    'rs': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria', 'Canela']
+  };
+  
+  // Dados fictícios de unidades por cidade
+  const unidadesPorCidade = {
+    'são paulo': ['MetaFit Paulista', 'MetaFit Ibirapuera', 'MetaFit Morumbi', 'MetaFit Premium Centro'],
+    'rio de janeiro': ['MetaFit Copacabana', 'MetaFit Ipanema', 'MetaFit Barra', 'MetaFit Premium Leblon'],
+    'belo horizonte': ['MetaFit Savassi', 'MetaFit Lourdes', 'MetaFit Pampulha', 'MetaFit Premium BH'],
+    'curitiba': ['MetaFit Batel', 'MetaFit Água Verde', 'MetaFit Shopping Palladium', 'MetaFit Premium Curitiba'],
+    'porto alegre': ['MetaFit Moinhos', 'MetaFit Centro Histórico', 'MetaFit Shopping Iguatemi', 'MetaFit Premium POA']
+  };
+  
+  // Evento para mudança de estado
+  estadosSelect.addEventListener('change', function() {
+    const estadoSelecionado = this.value;
+    
+    // Resetar cidades e unidades
+    cidadesSelect.innerHTML = '<option value="">Selecione sua cidade</option>';
+    unidadesSelect.innerHTML = '<option value="">Selecione primeiro a cidade</option>';
+    unidadesSelect.disabled = true;
+    
+    if (estadoSelecionado) {
+      cidadesSelect.disabled = false;
+      
+      // Popular cidades baseadas no estado selecionado
+      cidadesPorEstado[estadoSelecionado].forEach(cidade => {
+        const option = document.createElement('option');
+        option.value = cidade.toLowerCase();
+        option.textContent = cidade;
+        cidadesSelect.appendChild(option);
+      });
+    } else {
+      cidadesSelect.disabled = true;
+      cidadesSelect.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+    }
+  });
+  
+  // Evento para mudança de cidade
+  cidadesSelect.addEventListener('change', function() {
+    const cidadeSelecionada = this.value;
+    
+    // Resetar unidades
+    unidadesSelect.innerHTML = '<option value="">Selecione a unidade</option>';
+    
+    if (cidadeSelecionada) {
+      unidadesSelect.disabled = false;
+      
+      // Verificar se temos unidades específicas para esta cidade
+      if (unidadesPorCidade[cidadeSelecionada]) {
+        // Usar unidades específicas se existirem
+        unidadesPorCidade[cidadeSelecionada].forEach(unidade => {
+          const option = document.createElement('option');
+          option.value = unidade.toLowerCase().replace(/\s/g, '-');
+          option.textContent = unidade;
+          unidadesSelect.appendChild(option);
+        });
+      } else {
+        // Criar unidades genéricas se não houver específicas
+        const unidadesGenericas = [
+          `MetaFit ${capitalizeFirstLetter(cidadeSelecionada)} Centro`,
+          `MetaFit ${capitalizeFirstLetter(cidadeSelecionada)} Zona Norte`,
+          `MetaFit ${capitalizeFirstLetter(cidadeSelecionada)} Shopping`,
+          `MetaFit Premium ${capitalizeFirstLetter(cidadeSelecionada)}`
+        ];
+        
+        unidadesGenericas.forEach(unidade => {
+          const option = document.createElement('option');
+          option.value = unidade.toLowerCase().replace(/\s/g, '-');
+          option.textContent = unidade;
+          unidadesSelect.appendChild(option);
+        });
+      }
+    } else {
+      unidadesSelect.disabled = true;
+      unidadesSelect.innerHTML = '<option value="">Selecione primeiro a cidade</option>';
+    }
+  });
+  
+  // Função auxiliar para capitalizar a primeira letra
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
+  // Evento para o botão de matrícula
+  document.querySelector('.btn-matricula').addEventListener('click', function() {
+    const unidadeSelecionada = unidadesSelect.value;
+    
+    if (unidadeSelecionada) {
+      alert(`Redirecionando para matrícula na unidade: ${unidadesSelect.options[unidadesSelect.selectedIndex].text}`);
+      // Aqui você pode adicionar o redirecionamento real ou abrir um formulário
+    } else {
+      alert('Por favor, selecione uma unidade antes de se matricular');
+    }
+  });
+});
