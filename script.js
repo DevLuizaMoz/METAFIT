@@ -242,3 +242,112 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carrossel = document.querySelector('.carrossel');
+    const items = document.querySelectorAll('.carrossel-item');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+    let currentIndex = 0;
+    
+    // Para dispositivos com touch
+    items.forEach((item, index) => {
+        // Prevenir drag de imagens
+        item.addEventListener('dragstart', (e) => e.preventDefault());
+        
+        // Eventos de touch
+        item.addEventListener('touchstart', touchStart(index));
+        item.addEventListener('touchend', touchEnd);
+        item.addEventListener('touchmove', touchMove);
+        
+        // Eventos de mouse
+        item.addEventListener('mousedown', touchStart(index));
+        item.addEventListener('mouseup', touchEnd);
+        item.addEventListener('mouseleave', touchEnd);
+        item.addEventListener('mousemove', touchMove);
+    });
+    
+    // Funções para o drag
+    function touchStart(index) {
+        return function(event) {
+            currentIndex = index;
+            startPos = getPositionX(event);
+            isDragging = true;
+            
+            animationID = requestAnimationFrame(animation);
+            carrossel.classList.add('grabbing');
+        }
+    }
+    
+    function touchEnd() {
+        isDragging = false;
+        cancelAnimationFrame(animationID);
+        
+        const movedBy = currentTranslate - prevTranslate;
+        
+        if (movedBy < -100 && currentIndex < items.length - 1) {
+            currentIndex += 1;
+        }
+        
+        if (movedBy > 100 && currentIndex > 0) {
+            currentIndex -= 1;
+        }
+        
+        setPositionByIndex();
+        carrossel.classList.remove('grabbing');
+    }
+    
+    function touchMove(event) {
+        if (isDragging) {
+            const currentPosition = getPositionX(event);
+            currentTranslate = prevTranslate + currentPosition - startPos;
+        }
+    }
+    
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+    
+    function animation() {
+        setSliderPosition();
+        if (isDragging) requestAnimationFrame(animation);
+    }
+    
+    function setSliderPosition() {
+        carrossel.style.transform = `translateX(${currentTranslate}px)`;
+    }
+    
+    function setPositionByIndex() {
+        currentTranslate = currentIndex * -items[0].offsetWidth;
+        prevTranslate = currentTranslate;
+        setSliderPosition();
+    }
+    
+    // Botões de navegação (mantenha a funcionalidade existente)
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            setPositionByIndex();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < items.length - 1) {
+            currentIndex++;
+            setPositionByIndex();
+        }
+    });
+    
+    // Prevenir o comportamento padrão de toque para evitar conflitos
+    window.oncontextmenu = function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+    }
+});

@@ -325,6 +325,11 @@ nav li:first-child {
     transition: transform 0.5s ease;
     margin: 60px;
     will-change: transform;
+    cursor: grab;
+    user-select: none;
+}
+.carrossel:active {
+    cursor: grabbing;
 }
 .carrossel-item {
     flex: 0 0 auto;
@@ -1047,6 +1052,19 @@ nav li:first-child {
         transform: none;
         width: 220px;
         height: 220px;
+    }
+    .carrossel {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    .carrossel-item {
+        scroll-snap-align: start;
+    }
+    .carrossel::-webkit-scrollbar {
+        display: none;
     }
     .carrossel-btn {
         font-size: 1.3rem;
